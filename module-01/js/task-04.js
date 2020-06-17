@@ -3,8 +3,7 @@ let pricePerDroid = 3000;
 let input = prompt('Введите количество дроидов для вашего заказа');
 if (input !== null) {
   let order = Number(input);
-  const isString = Number.isNaN(order);
-  if (isString) {
+  if (isNaN(order)) {
     alert('Ошибочный ввод данных - не число');
   } else if (order < 1) {
     alert('Количество товара должно быть больше нуля');
