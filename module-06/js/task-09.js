@@ -1,14 +1,11 @@
-import { default as users } from './users.js';
-
-// console.table(users);
+import users from './users.js';
 
 const getNamesSortedByFriendsCount = users =>
+  // вначале при помощи операции распыления сделали копию
+  // исходного массива пользователей, чтобы не мутировать его
   [...users]
-    .sort((prevUser, nextUser) => prevUser.friends.length - nextUser.friends.length)
-    .map(user => user.name);
+    // и затем делаем деструктуризацию
+    .sort(({ friends: friends1 }, { friends: friends2 }) => friends1.length - friends2.length)
+    .map(({ name }) => name);
 
-// вначале при помощи операции распыления сделали копию
-// исходного массива пользователей, чтобы не мутировать его
-
-console.log(getNamesSortedByFriendsCount(users));
-// [ 'Moore Hensley', 'Sharlene Bush', 'Elma Head', 'Carey Barr', 'Blackburn Dotson', 'Sheree Anthony', 'Ross Vazquez' ]
+console.log(getNamesSortedByFriendsCount(users)); // [ 'Moore Hensley', 'Sharlene Bush', 'Elma Head', 'Carey Barr', 'Blackburn Dotson', 'Sheree Anthony', 'Ross Vazquez' ]

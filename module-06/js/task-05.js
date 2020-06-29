@@ -1,9 +1,6 @@
-import { default as users } from './users.js';
+import users from './users.js';
 
-// console.table(users);
-
-const getUserWithEmail = (users, email) =>
-  users.find(user => user.email === email);
+const getUserWithEmail = (users, search) => users.find(({ email }) => email === search);
 
 console.log(getUserWithEmail(users, 'shereeanthony@kog.com')); // {объект пользователя Sheree Anthony}
 console.log(getUserWithEmail(users, 'elmahead@omatom.com')); // {объект пользователя Elma Head}

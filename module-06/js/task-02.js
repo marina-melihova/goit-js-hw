@@ -1,8 +1,5 @@
-import { default as users } from './users.js';
+import users from './users.js';
 
-// console.table(users);
-
-const getUsersWithEyeColor = (users, color) =>
-  users.filter(user => user.eyeColor === color);
+const getUsersWithEyeColor = (users, color) => users.filter(({ eyeColor }) => eyeColor === color);
 
 console.log(getUsersWithEyeColor(users, 'blue')); // [объект Moore Hensley, объект Sharlene Bush, объект Carey Barr]

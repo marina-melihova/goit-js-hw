@@ -1,9 +1,7 @@
-import { default as users } from './users.js';
-
-// console.table(users);
+import users from './users.js';
 
 const getUsersWithFriend = (users, friendName) =>
-  users.filter(user => user.friends.includes(friendName)).map(user => user.name);
+  users.filter(({ friends }) => friends.includes(friendName)).map(({ name }) => name);
 
 console.log(getUsersWithFriend(users, 'Briana Decker')); // [ 'Sharlene Bush', 'Sheree Anthony' ]
 console.log(getUsersWithFriend(users, 'Goldie Gentry')); // [ 'Elma Head', 'Sheree Anthony' ]

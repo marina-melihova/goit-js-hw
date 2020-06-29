@@ -1,7 +1,5 @@
-import { default as users } from './users.js';
+import users from './users.js';
 
-// console.table(users);
-
-const getInactiveUsers = users => users.filter(user => !user.isActive);
+const getInactiveUsers = users => users.filter(({ isActive }) => !isActive);
 
 console.log(getInactiveUsers(users)); // [объект Moore Hensley, объект Ross Vazquez, объект Blackburn Dotson]
