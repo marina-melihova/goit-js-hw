@@ -1,0 +1,41 @@
+body {
+  counter-reset: count-task;
+}
+
+img {
+  display: block;
+  max-width: 100%;
+  height: auto;
+}
+
+.section {
+  padding: 0 15px;
+  border: 1px solid #d1d5da;
+  border-radius: 6px;
+  border-color: #e1e4e8;
+}
+
+.section__title {
+  counter-increment: count-task;
+  font-size: 2em;
+  padding-bottom: 0.3em;
+  border-bottom: 1px solid #eaecef;
+  margin-top: 24px;
+  margin-bottom: 16px;
+  font-weight: 600;
+  line-height: 1.25;
+}
+
+.section__title:after {
+  content: counter(count-task);
+  margin-left: 10px;
+}
+
+#gallery {
+  display: flex;
+  list-style: none;
+}
+
+.gallery__item:not(:last-child) {
+  padding-right: 15px;
+}
