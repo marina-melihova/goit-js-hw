@@ -2,6 +2,10 @@ body {
   counter-reset: count-task;
 }
 
+input {
+  outline: none;
+}
+
 img {
   display: block;
   max-width: 100%;
@@ -9,7 +13,8 @@ img {
 }
 
 .section {
-  padding: 0 15px;
+  margin-bottom: 15px;
+  padding: 15px;
   border: 1px solid #d1d5da;
   border-radius: 6px;
   border-color: #e1e4e8;
@@ -20,7 +25,7 @@ img {
   font-size: 2em;
   padding-bottom: 0.3em;
   border-bottom: 1px solid #eaecef;
-  margin-top: 24px;
+  margin-top: 0;
   margin-bottom: 16px;
   font-weight: 600;
   line-height: 1.25;
@@ -33,9 +38,94 @@ img {
 
 #gallery {
   display: flex;
+  flex-direction: column;
   list-style: none;
+  padding: 0;
 }
 
-.gallery__item:not(:last-child) {
-  padding-right: 15px;
+@media (max-width: 575px) {
+  .gallery__item:not(:last-child) {
+    padding-bottom: 15px;
+  }
+}
+@media (min-width: 576px) {
+  #gallery {
+    flex-direction: row;
+  }
+  .gallery__item:not(:last-child) {
+    padding-right: 15px;
+  }
+  .gallery__item img {
+    max-height: 290px;
+  }
+}
+
+#value {
+  padding: 0 10px;
+  vertical-align: middle;
+  color: green;
+  font-weight: 600;
+  font-size: 20px;
+  line-height: 1;
+}
+
+#validation-input {
+  border: 3px solid #bdbdbd;
+}
+
+#validation-input.valid {
+  border-color: #4caf50;
+}
+
+#validation-input.invalid {
+  border-color: #f44336;
+}
+
+#font-size-control {
+  -webkit-appearance: none;
+  appearance: none;
+  margin-bottom: 15px;
+  height: 10px;
+  background-color: #feebc5;
+  background-image: linear-gradient(green, green);
+  background-repeat: no-repeat;
+  border-radius: 10px;
+  cursor: pointer;
+}
+#font-size-control::-moz-range-track {
+  background: none;
+  border: none;
+}
+
+#font-size-control::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  background-color: green;
+  width: 18px;
+  height: 18px;
+  border-radius: 50%;
+  cursor: pointer;
+}
+
+#font-size-control::-moz-range-thumb {
+  appearance: none;
+  background-color: green;
+  width: 18px;
+  height: 18px;
+  border-radius: 50%;
+  cursor: pointer;
+}
+
+#boxes {
+  margin: 20px;
+  min-height: 100px;
+  display: flex;
+  flex-flow: row wrap;
+}
+
+#controls input {
+  width: 35px;
+}
+
+#boxes div {
+  margin: 10px;
 }
