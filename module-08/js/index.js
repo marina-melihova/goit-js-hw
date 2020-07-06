@@ -49,6 +49,7 @@ function onOpenModal(e) {
 
 function onCloseModal() {
   modalRef.classList.remove('is-open');
+  imageModalRef.src = '';
   window.removeEventListener('keydown', onPressKey);
   closeModalBtn.removeEventListener('click', onCloseModal);
   overlayRef.removeEventListener('click', onCloseModal);
