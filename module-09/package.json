@@ -20,7 +20,7 @@
   "bugs": {
     "url": "https://github.com/marina-melihova/goit-js-hw/issues"
   },
-  "homepage": "https://github.com/marina-melihova/goit-js-hw/module-09/",
+  "homepage": "https://marina-melihova.github.io/goit-js-hw/module-09/",
   "devDependencies": {
     "@babel/core": "^7.8.7",
     "@babel/plugin-proposal-class-properties": "^7.8.3",
