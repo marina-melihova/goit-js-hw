@@ -31,6 +31,10 @@ async function fetchPhotos() {
     updateGalleryMarkup(photos);
     loadMoreBtn.show();
     loadMoreBtn.enable();
+    window.scrollTo({
+      top: document.documentElement.offsetHeight,
+      behavior: 'smooth',
+    });
   } catch (error) {
     console.log('Лог ошибки из fetchPhotos: ' + error);
   }
