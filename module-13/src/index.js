@@ -14,13 +14,26 @@ refs.searchForm.addEventListener('submit', searchFormSubmitHandler);
 loadMoreBtn.refs.button.addEventListener('click', fetchPhotos);
 refs.galleryContainer.addEventListener('click', showModal);
 
-function searchFormSubmitHandler(event) {
+async function searchFormSubmitHandler(event) {
   event.preventDefault();
   const form = event.currentTarget;
   apiService.query = form.elements.query.value;
   clearGalleryContainer();
   apiService.resetPage();
-  fetchPhotos();
+  try {
+    await apiService.getMaxPage();
+  } catch (error) {
+    console.log('Лог ошибки из getMaxPage: ' + error);
+  }
+  if (apiService.maxPage) {
+    fetchPhotos();
+  } else {
+    refs.galleryContainer.insertAdjacentHTML(
+      'beforeend',
+      'По вашему запросу не найдено ни одного изображения',
+    );
+  }
+
   form.reset();
 }
 
@@ -36,7 +49,11 @@ async function fetchPhotos() {
       behavior: 'smooth',
     });
   } catch (error) {
-    console.log('Лог ошибки из fetchPhotos: ' + error);
+    console.log('Лог ошибки из getPhotos: ' + error);
+  }
+  console.log('current page: ', apiService.page, 'max page: ', apiService.maxPage);
+  if (apiService.page >= apiService.maxPage) {
+    loadMoreBtn.hide();
   }
 }
 
