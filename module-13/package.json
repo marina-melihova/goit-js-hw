@@ -7,7 +7,7 @@
     "start": "webpack-dev-server --env.mode development --config ./webpack/config.js",
     "build": "webpack --env.mode production --config ./webpack/config.js",
     "predeploy": "npm run build",
-    "deploy": "gh-pages -d build -b master -e module-12 -r ",
+    "deploy": "gh-pages -d build -b master -e module-13",
     "test": "gh-pages --help"
   },
   "repository": {
@@ -20,7 +20,7 @@
   "bugs": {
     "url": "https://github.com/marina-melihova/goit-js-hw/issues"
   },
-  "homepage": "https://marina-melihova.github.io/goit-js-hw/module-12/",
+  "homepage": "https://marina-melihova.github.io/goit-js-hw/module-13/",
   "devDependencies": {
     "@babel/core": "^7.8.7",
     "@babel/plugin-proposal-class-properties": "^7.8.3",
