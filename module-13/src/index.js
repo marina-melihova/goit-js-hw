@@ -23,15 +23,12 @@ async function searchFormSubmitHandler(event) {
   try {
     await apiService.getMaxPage();
   } catch (error) {
-    console.log('Лог ошибки из getMaxPage: ' + error);
+    console.log('Error log from getMaxPage: ' + error);
   }
   if (apiService.maxPage) {
     fetchPhotos();
   } else {
-    refs.galleryContainer.insertAdjacentHTML(
-      'beforeend',
-      'По вашему запросу не найдено ни одного изображения',
-    );
+    refs.galleryContainer.insertAdjacentHTML('beforeend', 'No images found for your search');
   }
 
   form.reset();
@@ -49,7 +46,7 @@ async function fetchPhotos() {
       behavior: 'smooth',
     });
   } catch (error) {
-    console.log('Лог ошибки из getPhotos: ' + error);
+    console.log('Error log from getPhotos: ' + error);
   }
   console.log('current page: ', apiService.page, 'max page: ', apiService.maxPage);
   if (apiService.page >= apiService.maxPage) {
